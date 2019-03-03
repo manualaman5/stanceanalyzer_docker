@@ -1,0 +1,19 @@
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - Stance analyzer</title>
+      {% else %}
+      <title>Welcome to the Stance analyzer</title>
+      {% endif %}
+    </head>
+    <body>
+        <div>Stance analyzer: <a href="/index">Home</a></div>
+        <hr>
+        {% block content %}{% endblock %}
+        <footer>
+
+          © Copyright 2019, All Rights Reserved
+        </footer>
+    </body>
+
+</html>

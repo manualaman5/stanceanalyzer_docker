@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Welcome to the stance analyzer!</h1>
+<!--
+    {% for post in posts %}
+    <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
+    {% endfor %}
+-->
+    <form action='\setup'>
+        <input type="submit" value="Go to setup" />
+    </form>
+{% endblock %}
