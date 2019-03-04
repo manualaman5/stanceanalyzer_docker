@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template
+from flask import render_template, flash, redirect
 from app.takedata import TakeData
 
 @app.route('/')
@@ -11,9 +11,13 @@ def index():
     {'author': {'username': 'Susan'},'body': 'The Avengers movie was so cool!'}
     ]
     return render_template('home.html', title='Home', user=user, posts=posts)
-@app.route('/setup')
-def issue():
+@app.route('/setup', methods=['GET', 'POST'])
+def setup():
     form = TakeData()
+    if form.validate_on_submit():
+        flash('The requested user is {}'.format(
+            form.twitter_user.data))
+        return redirect('/index')
     return render_template('takedata.html', title='Issue set up', form=form)
 
 @app.route('/addissue')
