@@ -37,3 +37,9 @@ Thumbs.db
 *.log
 *.sql
 *.sqlite
+
+# Specifics #
+#############
+
+__pycache__
+app/__pycache__/*
