@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template, flash, redirect
+from flask import render_template, flash, redirect, url_for
 from app.takedata import TakeData
 
 @app.route('/')
@@ -15,9 +15,12 @@ def index():
 def setup():
     form = TakeData()
     if form.validate_on_submit():
-        flash('The requested user is {}'.format(
-            form.twitter_user.data))
-        return redirect('/index')
+        #flash('The requested user is {}'.format(form.twitter_user.data))
+        if form.newissue.data != '':
+            return redirect(url_for('addissue'))
+        elif form.guncontrol.data == False and form.environment.data == False:
+            flash('Please, select at least one issue')
+            return redirect(url_for('setup'))
     return render_template('takedata.html', title='Issue set up', form=form)
 
 @app.route('/addissue')

@@ -7,6 +7,11 @@
         <p>
             {{ form.twitter_user.label }}<br>
             {{ form.twitter_user(size=32) }}
+            
+            {% for error in form.twitter_user.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
         </p>
 
         <p>{{ form.environment() }} {{ form.environment.label }}</p>
