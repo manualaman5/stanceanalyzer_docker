@@ -19,13 +19,22 @@ def setup():
         if form.newissue.data != '':
             return redirect(url_for('addissue'))
         elif form.guncontrol.data == False and form.environment.data == False:
-            flash('Please, select at least one issue')
-            return redirect(url_for('setup'))
+            flash('Please, select at least one issue or add one')
+            #return redirect(url_for('setup'))
+        else:
+            return redirect(url_for('results'))
     return render_template('takedata.html', title='Issue set up', form=form)
 
 @app.route('/addissue')
 def addissue():
-    return render_template('addissue.html', title='Add issue')
+    #newissue = form.newissue.data
+    #Here we get the list of examplar accounts for the issue (LIST)
+    #accounts = getexamples(newissue)
+    return render_template('addissue.html', title='Select example accounts', newissue='newissue')
+
+#@app.route('/addissue2')
+#def addissue2():
+
 
 @app.route('/results')
 def results():

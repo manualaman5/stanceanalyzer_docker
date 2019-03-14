@@ -21,6 +21,7 @@ __pycache__
 *.rar
 *.tar
 *.zip
+*.json
 
 # OS generated files #
 ######################
@@ -41,5 +42,6 @@ Thumbs.db
 # Specifics #
 #############
 
+*.pyc
 __pycache__
 app/__pycache__/*
