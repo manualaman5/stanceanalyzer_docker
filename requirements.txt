@@ -1,0 +1,4 @@
+Flask==1.0
+WTForms==2.3.0
+Flask-wtf==0.14.2
+werkzeug==0.16.1
